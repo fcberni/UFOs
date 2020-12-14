@@ -35,7 +35,7 @@ function updateFilters() {
     
     // 4b. Save the value that was changed as a variable.
     let elementValue = changedElement.property("value");
-    console.log(elementValue);
+    console.log("input filter value", elementValue);
 
     // 4c. Save the id of the filter that was changed as a variable.
     let filterId = changedElement.atrr("id");
@@ -67,10 +67,11 @@ function updateFilters() {
     Object.entries(filters).forEach(([key, value]) => {
       filteredData = filteredData.filter(row => row[key] === value);
     });
+
+    console.log("new filter table", filteredData)
   
     // 10. Finally, rebuild the table using the filtered data
-    buildTable(filteredData);
-    
+    buildTable(filteredData);  
   };
   
   // 2. Attach an event to listen for changes to each filter
